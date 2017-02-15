@@ -3,6 +3,7 @@ import CoreLayout from '../layouts/CoreLayout'
 import Home from './Home'
 import CounterRoute from './Counter'
 import ZenRoute from './Zen'
+import ColourRoute from './Colours'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -13,7 +14,8 @@ export const createRoutes = (store) => ({
   indexRoute  : Home,
   childRoutes : [
     CounterRoute(store),
-    ZenRoute(store)
+    ZenRoute(store),
+    ColourRoute(store)
   ]
 })
 
@@ -33,6 +35,5 @@ export const createRoutes = (store) => ({
     // an API for async route definitions. Your code splitting should occur
     // inside the route `getComponent` function, since it is only invoked
     // when the route exists and matches.
-
 
 export default createRoutes

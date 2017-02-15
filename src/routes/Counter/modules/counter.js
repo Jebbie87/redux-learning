@@ -33,27 +33,17 @@ export const doubleAsync = () => {
   }
 }
 
-const randomColours = ['blue', 'red', 'black', 'yellow']
-const randomNumber  = Math.floor((Math.random() * 4) + 1)
-export const colourChange = () => {
-  return {
-    type    : COUNTER_COLOUR_CHANGER,
-    payload : randomColours[randomNumber],
-  }
-}
-
 export const actions = {
   increment,
   doubleAsync,
-  colourChange,
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
-  [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2,
+  [COUNTER_INCREMENT]     : (state, action) => state + action.payload,
+  [COUNTER_DOUBLE_ASYNC]  : (state, action) => state * 2,
 }
 
 // ------------------------------------
@@ -62,6 +52,5 @@ const ACTION_HANDLERS = {
 const initialState = 0
 export default function counterReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
-
   return handler ? handler(state, action) : state
 }
